@@ -1,0 +1,44 @@
+body {
+    color: #222;
+    line-height: 1.5em;
+}
+
+.dropdown {
+    width: 200px;
+}
+/* 얘를 왜 해주냐? 얘가 없으면 dropdown 클래스가 블록 요소이기 때문에 width:100%라서 마우스를 버튼 밖으로 내놓아도 계속 목록이 나옴 */
+
+/* width: 200px;이 아닌 display: inline-block;으로 해도됨. block 요소는 width가 100%지만 inline-block은 width가 컨텐츠 값이기 때문 */
+
+.dropdown-btn {
+    color: white;
+    width: inherit; 
+    /* width:200px;로 해도 되지만 그렇게 되면 dropdown의 width가 바뀌면 계속 바꿔줘야됨. */
+    background-color: green;
+    border: none;
+    outline: none;
+}
+
+.dropdown:hover .dropdown-submenu {
+    display:block;
+}
+
+.dropdown-submenu {
+    width: inherit;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
+    display: none;
+}
+
+.dropdown-submenu a {
+    font-size: 13px;
+    color: #222;
+    text-decoration: none;
+    display: block;
+    padding: 2px;
+    text-align: center;
+}
+
+.dropdown-submenu a:hover {
+    background-color: #eee;
+}
+

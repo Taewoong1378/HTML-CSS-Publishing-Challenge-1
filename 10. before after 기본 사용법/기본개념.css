@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.gnb a {
+    text-decoration: none;
+    color: black;
+}
+
+/* before와 after는 기본이 inline 요소이다! */
+.gnb a:before {
+    content: '01';
+    background-color: royalblue;
+    color: #fff;
+    width: 20px;    
+    height: 20px;
+    display: inline-block;  
+    /* before와 after는 inline 요소이기 때문에 display: inline-block;을 해주지 않으면 width나 height 값을 가질 수 없다. */
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.gnb a:after {
+    content: 'update';
+    font-size: 12px;
+    background-color: crimson;
+    color: #fff;
+    /* 인라인 요소이기 때문에 마진 좌우만 가질 수 있음 */
+    margin-left: 5px;
+    /* margin-top: 10px; 아무 변화 없음 */
+    padding: 2px;
+    border-radius: 2px;
+}

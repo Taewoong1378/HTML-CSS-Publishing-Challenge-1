@@ -1,0 +1,72 @@
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.gnb {
+    /* 앞에 생기는 점 없애는 코드 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 50px 30px;
+    /* 글자들을 가로배치하는 세 번째 방법 */
+    display: flex;
+}
+
+.gnb li {
+    /* 글자들을 가로배치하는 첫 번째 방법 
+    display: inline-block;
+    */
+
+    /* 글자들을 가로배치하는 두 번째 방법
+    float: left;
+    width: 120px;  -> 600/5 = 120
+    text-align: center; 
+    */
+
+    /* 글자들을 가로배치하는 세 번째 방법 */
+    flex: 1;
+    text-align: center;
+}
+
+.gnb li a {
+    font-size: 14px;
+    position: relative;
+}
+
+.gnb li a:before {
+    content: '';
+    position: absolute;
+    background-color: dodgerblue;
+    height: 2px;
+    width: 0;
+    /* right: 0; 
+    얘를 주면 오른쪽에서 왼쪽으로 애니메이션 발동
+    */
+
+    /* left: 0; 
+    얘를 주면 왼쪽에서 오른쪽으로 애니메이션 발동
+    */
+    bottom: -10px;
+    transition: 0.5s;
+
+    /* border를 가운데로 보내는 작업 */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gnb li a:hover:before {
+    width: 100%;
+}

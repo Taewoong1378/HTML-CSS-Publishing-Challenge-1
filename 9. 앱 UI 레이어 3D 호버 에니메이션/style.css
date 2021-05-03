@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* 
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+이 방법으로 해도 똑같이 수직 수평 중앙에 위치됨
+*/
+
+.app-ui {
+    /* border: 1px solid red; */
+    /* width: 360px; 과 height: 640px;은 사진의 크기로, position: relative;를 시행하는 시점에서 사진의 위치가 수평수직 중앙이 안되는데, 얘를 시행해주면 맞춰진다  */
+    width: 360px;
+    height: 640px;
+    transform: rotate(-30deg) skewX(20deg);
+
+    /* transform은 한번에 써주기 안그러면 밑에께 위에꺼 덮어씀 
+    transform: rotate(-30deg);
+    transform: skewX(20deg); 
+    */
+
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+    background-color: #eee;
+}
+
+.app-ui:hover {
+    box-shadow: -50px 100px 60px rgba(0, 0, 0, 0.3);
+}
+
+.app-ui img {
+    position: absolute;
+    /* 위를 해주는 순간 사진 4개가 같은 위치에 배치됨 */
+    /* 매우 중요 */
+    transition: 0.5s;   /* hover가 아닌 곳에 transition */
+}
+
+.app-ui:hover img:nth-child(1) {
+    transform: translate(40px, -40px);
+    opacity: 0.2;
+}
+
+.app-ui:hover img:nth-child(2) {
+    transform: translate(80px, -80px);
+    opacity: 0.4;
+}
+
+.app-ui:hover img:nth-child(3) {
+    transform: translate(120px, -120px);
+    opacity: 0.6;
+}
+
+.app-ui:hover img:nth-child(4) {
+    transform: translate(160px, -160px);
+    /* transform: translate(x, y); 에서 x는 왼쪽에서 오른쪽으로, y는 위에서 아래로 이동한다. 따라서 x축으로 가장 큰 값을 주고 y축으로 가장 작은 값을 준 4번째 사진이 가장 x축 기준 오른쪽, y축 기준 가장 위쪽에 위치하게 된다. */
+}

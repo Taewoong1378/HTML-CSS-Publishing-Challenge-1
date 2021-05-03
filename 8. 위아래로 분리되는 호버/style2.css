@@ -1,0 +1,100 @@
+body {
+    color: white;
+    background-color: #222;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.5em;
+}
+
+
+.items {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.item {
+    position: relative;
+    width: 300px;
+    display: inline-block;
+    height: 200px;
+    margin: 10px;
+}
+
+/* front와 back에 공통으로 주는 속성들을 묶어서 정리 */
+.front,
+.back {
+    position: absolute; /*absolute를 주는 순간 inline 요소가 된다*/
+    transition: 0.5s;
+    top: 0; 
+    /* 얘를 지정해주지 않으면 transition이 먹히지 않는다. top:0 에서 top: -50% 혹은 top: 50%로 바뀐다고 해줘야 transition이 적용됨 */
+}
+
+.front {
+    background-color: #333;
+    text-align: center;
+    height: inherit;
+    width: 100%;  
+    /* absolute로 인해 inline 요소가 돼 width 값을 읽데 된다. 따라서 새로 width 값을 지정해줘야한다. */
+
+    z-index: 1; /* z-index는 기본적으로 0이다. */
+                /* front를 back보다 앞에 위치시키기 위해 사용 */
+}
+
+.item:hover .front img {
+    animation: ani 0.5s linear infinite;
+}
+
+.front h2 {
+    margin-top: 0;
+}
+.back {
+    position: absolute; /*absolute를 주는 순간 inline 요소가 된다*/
+    /* front보다 뒤에 지정된 back이 front를 덮는 현상이 발생
+    이를 없애주기 위해서 z-index를 사용한다. */
+    background-color: #fff;
+    color: #000;
+    height: inherit;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    /* opacity: 0를 주는 이유는 front 배경 뒤에 back 배경이 살짝 비추기 때문. 따라서 opacity: 0을 통해 back 배경을 없앤 다음 hover 됐을 때 opacity: 1을 줘서 나타나게 하면 해결된다. */
+}
+
+.back a {
+    background-color: yellowgreen;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 15px;  /* 상하 / 좌우 */
+    border-radius: 20px;
+}
+
+.back a:hover {
+    background-color: #000;
+}
+
+.item:hover .front {
+    top: -50%;
+}
+.item:hover .back {
+    top: 50%;
+    opacity: 1;
+}
+
+@keyframes ani {
+    0% {
+        transform: scale(1)
+        /* 사실 안줘도됨. 어차피 scale(1)이 기본값이기 때문에 */
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+
+}

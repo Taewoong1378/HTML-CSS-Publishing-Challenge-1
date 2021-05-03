@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tab-inner {
+  /* border: 1px solid red; */
+  width: 300px;
+  height: 350px;
+}
+input[name=tabmenu] {
+  display: none;
+}
+.slide {
+  /* tab-inner가 아닌 slide가 부모이다 */
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+.slide-inner {
+  width: 900px;
+  font-size: 0;
+  /* font-size: 0;을 해주는 이유 = 사진 간의 margin을 없애주기 위해
+  이걸 해주지 않으면 marign때문에 width:900px을 주어도 사진이 한줄에 다 위치하지 않는다 */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.btn {
+  /* 전의 예시와 달리 부모가 tab-inner가 아니라 slide이기 때문에 간단하게 text-align: center;를 통해 중앙 정렬을 해줄 수 있다. */
+  text-align: center;
+  margin-top: 10px;
+}
+.btn label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 슬라이드 이동시키기 */
+input[id=tab1]:checked ~ .slide .slide-inner {
+  left: 0;
+}
+input[id=tab2]:checked ~ .slide .slide-inner {
+  left: -300px;
+}
+input[id=tab3]:checked ~ .slide .slide-inner {
+  left: -600px;
+}
+
+input[id=tab1]:checked ~ .btn label[for=tab1],
+input[id=tab2]:checked ~ .btn label[for=tab2],
+input[id=tab3]:checked ~ .btn label[for=tab3] {
+  background-color: crimson;
+}
+
+
+
+
+
+
+
+
+
+
+
+

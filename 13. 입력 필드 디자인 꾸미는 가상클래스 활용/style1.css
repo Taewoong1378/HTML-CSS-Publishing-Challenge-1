@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.item {
+    /* border: 1px solid red; */
+    width: 300px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* 
+.item input[type=text],
+.item input[type=email],
+.item input[type=tel]  
+*/
+
+.item input {
+    border: 1px solid lightgray;
+    height: 40px;
+    width: inherit;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    padding-left: 40px; 
+    /* placeholder에 왼쪽 간격을 주는 방법 */
+    outline: none;
+    transition: 0.3s;
+}
+
+.item .fa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: gray;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    /* border: 1px solid blue; */
+    text-align: center;
+    line-height: 40px;
+    transition: 0.3s;
+}
+
+/* focus란 : input에 클릭이 된다면 어떻게 할건지 지정 */
+.item input:focus {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px dodgerblue;
+}
+
+/* 인접선택자 */
+/* 위에 인접한 것은 절대로 선택할 수 없고 아래에 있는 것만 선택할 수 있다 */
+.item input:focus + .fa {
+    color: dodgerblue;
+}
+
+/* item 클래스의 input 선택자를 클릭했을 때 자기자신의 placeholder를 어떻게 할 것인지 지정하는 코드 */
+.item input:focus::placeholder {
+    visibility: hidden;
+}

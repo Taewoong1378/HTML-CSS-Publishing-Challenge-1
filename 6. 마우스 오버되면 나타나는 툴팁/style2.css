@@ -1,0 +1,52 @@
+.container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.icon {
+    position: relative;
+    /* border: 1px solid red; */
+    /* 이미지 크기임 */
+    width: 125px;
+    height: 125px;
+    margin: 10px;
+}
+
+.icon span {
+    /* position: absolute를 주는 순간 어떤 요소건 무조건 inline-block 요소로 변경됨.*/
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+
+    /* 요거 매우 헷갈림 주의하기 top, left 값 주기 */
+    top: -80px;
+    left: 50%;
+    transform: translatex(-50%);
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+    /* visibility: hidden;이 아니라 display:block;을 해버리면 얘가 position:absolute로 인해 inline-block으로 속성이 변경됐는데 다시 block 속성으로 바뀌게 됨 */
+}
+
+.icon span:after {
+    content:'';
+    position: absolute;
+    background-color: #000;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg) translateX(-50%);
+    bottom: -5px;
+    /* height의 반만큼 -값을 준다 */
+    left: 50%;
+}
+.icon:hover span {
+    opacity: 1;
+    visibility: visible;
+}

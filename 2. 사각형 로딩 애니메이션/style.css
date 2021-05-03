@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+.loading span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    top: 0;
+    left: 0;
+    animation: loading 1.0s infinite;
+    /* 대부분 1.5s와 infinite 사이에 linear를 넣어주지만 이번 경우엔 살짝 끊어지는 느낌을 줘야하기 떄문에 linear을 뺀다 */
+}
+.loading span:nth-child(1) {
+    background-color: crimson;
+}
+.loading span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes loading {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    25% {
+        top: 0;
+        /* right:0; 라고 하면 안됨 */
+        left: calc(100% - 10px);
+        background-color: dodgerblue;
+    }   
+    50% {
+        top: calc(100% - 10px);
+        left: calc(100% - 10px);
+        background-color: orange;
+    }
+    75% {
+        top: calc(100% - 10px);
+        left: 0;
+        background-color: yellowgreen;
+    }
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
